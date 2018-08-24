@@ -18,6 +18,8 @@ class User:
 
 class Credentials(User):
 
+    credential_list =[]
+
     '''
     class that generates new instances of Credentials
 
@@ -27,3 +29,9 @@ class Credentials(User):
         self.appName = appName
         self.loginname = loginname
         self.passwordUsed = passwordUsed
+
+    def save_credentials(self):
+        '''
+        this method saves the credentials of a users
+        '''
+        Credentials.credential_list.append(self)
