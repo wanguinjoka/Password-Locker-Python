@@ -72,5 +72,9 @@ class Credentials(User):
                     return True
 
         return False
-            # else:
-            #     return username +"Not found"
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method that returns the credential list
+        '''
+        return cls.credential_list
