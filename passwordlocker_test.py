@@ -44,6 +44,14 @@ class TestUser(unittest.TestCase):
             test_user.save_user()
             self.assertEqual(len(User.user_list),2)
 
+
+    def test_display_all_users(self):
+        '''
+        test that returns a list of users usersobjects
+
+        '''
+        self.assertEqual(User.display_users(),User.user_list)
+
 class TestCredentials(unittest.TestCase):
 
     def setUp(self):

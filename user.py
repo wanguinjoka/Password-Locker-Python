@@ -16,6 +16,13 @@ class User:
         '''
         User.user_list.append(self)
 
+    @classmethod
+    def display_users(cls):
+        '''
+        method returns user lists
+        '''
+        return cls.user_list
+
 class Credentials(User):
 
     credential_list =[]
