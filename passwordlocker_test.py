@@ -58,7 +58,7 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_credentials = Credentials("github","wanguijbow","jbow2*") # create user object
+        self.new_credentials = Credentials("wangu","pword","github","wanguijbow","jbow2*") # create user object
 
 
     def test_init(self):
@@ -91,9 +91,31 @@ class TestCredentials(unittest.TestCase):
             objects to our credential_list
             '''
             self.new_credentials.save_credentials()
-            test_save_credentials = Credentials("testapp","bowj","xoxo2*") # new user
+            test_save_credentials = Credentials("testusername","testpassword","testapp","bowj","xoxo2*") # new user
             test_save_credentials.save_credentials()
             self.assertEqual(len(Credentials.credential_list),2)
+
+    def test_find_credential_by_username(self):
+        '''
+        test to check if we can find a credential by username and display information
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credential = Credentials("testusername","testpassword","testapp","testloginused","testpasswordused") # new contact
+        test_credential.save_credentials()
+
+        found_credential = Credentials.find_by_username("testusername")
+
+        self.assertEqual(found_credential.appName,test_credential.appName)
+        self.assertEqual(found_credential.loginname,test_credential.loginname)
+        self.assertEqual(found_credential.passwordUsed,test_credential.passwordUsed)
+    # def test_display_all_credentials(self):
+    #      '''
+    #      test that returns a list of credentials objects
+    #
+    #      '''
+    #      self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
+
 
 
 if __name__ == '__main__':
