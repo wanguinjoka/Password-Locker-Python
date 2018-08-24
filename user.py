@@ -58,13 +58,19 @@ class Credentials(User):
         for credentials in cls.credential_list:
             if credentials.username == username:
                 return credentials
-    # @classmethod
-    # def display_credentials(cls):
-    #     '''
-    #     method returns credential lists
-    #     '''
-    #     if user.username == username:
-    #         return cls.credential_list
-    #
-    #     else:
-    #         return "Wrong username try a"
+    @classmethod
+    def user_exist(cls, username):
+        '''
+        Method that checks if a user exists from the credential_list.
+        Args:
+            username: Username to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for credentials in cls.credential_list:
+            if credentials.username == username:
+                    return True
+
+        return False
+            # else:
+            #     return username +"Not found"

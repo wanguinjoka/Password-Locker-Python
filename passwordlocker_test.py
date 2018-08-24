@@ -52,6 +52,8 @@ class TestUser(unittest.TestCase):
         '''
         self.assertEqual(User.display_users(),User.user_list)
 
+
+
 class TestCredentials(unittest.TestCase):
 
     def setUp(self):
@@ -109,13 +111,19 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(found_credential.appName,test_credential.appName)
         self.assertEqual(found_credential.loginname,test_credential.loginname)
         self.assertEqual(found_credential.passwordUsed,test_credential.passwordUsed)
-    # def test_display_all_credentials(self):
-    #      '''
-    #      test that returns a list of credentials objects
-    #
-    #      '''
-    #      self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
 
+    def test_user_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the contact.
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credential = Credentials("testusername","testpassword","testapp","testloginused","testpasswordused") # new contact
+        test_credential.save_credentials()
+
+        user_exists = Credentials.user_exist("testusername")
+
+        self.assertTrue(user_exists)
 
 
 if __name__ == '__main__':
