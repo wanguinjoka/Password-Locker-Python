@@ -5,16 +5,16 @@ class User:
     '''
     user_list = []
 
-    def save_user(self):
-        '''
-        save_user method saves usersobjects into passwordlocker_list
-        '''
-        User.user_list.append(self)
-
     def __init__(self, username,password):
 
         self.username = username
         self.password = password
+
+    def save_user(self):
+        '''
+        save_user method saves usersobjects into user_list
+        '''
+        User.user_list.append(self)
 
 class Credentials(User):
 
