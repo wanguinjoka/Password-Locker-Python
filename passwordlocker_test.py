@@ -44,5 +44,24 @@ class TestUser(unittest.TestCase):
             test_user.save_user()
             self.assertEqual(len(User.user_list),2)
 
+class TestCredentials(unittest.TestCase):
+
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_credentials = Credentials("github","wanguijbow","jbow2*") # create user object
+
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
+        self.assertEqual(self.new_credentials.appName,"github")
+        self.assertEqual(self.new_credentials.loginname,"wanguijbow")
+        self.assertEqual(self.new_credentials.passwordUsed,"jbow2*")
+
+
 if __name__ == '__main__':
     unittest.main()
