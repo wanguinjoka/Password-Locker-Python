@@ -36,3 +36,22 @@ def create_credentials(appName,loginname,passwordUsed):
     '''
     new_credentials=Credentials(appName,loginname,passwordUsed)
     return new_credentials
+
+def save_credentials(credentials):
+    '''
+    function to save credentials
+    '''
+    Credentials.save_credentials(credentials)
+
+def display_credentials(username):
+    '''
+    function that displays credentials saved by user
+    '''
+    return Credentials.display_credentials(username)
+
+def copy_credential(appName):
+    '''
+    function to copy credentials to clipboard
+    '''
+
+    return Credentials.copy_credential(appName)
