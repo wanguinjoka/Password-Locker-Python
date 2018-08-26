@@ -55,3 +55,16 @@ def copy_credential(appName):
     '''
 
     return Credentials.copy_credential(appName)
+
+def main():
+    print ('Welcome to Passwrd Locker:-Where you can save your passwords.')
+    print ('To navigate through the site use this short cuts : nu-New user , log-login')
+    short_code = input('enter short_code')
+    if short_code == 'nu':
+        print('Welcome new user:')
+        appName = input('Enter username -').strip()
+        password = input('Enter password').strip()
+
+        save_user(create_user(username,password))
+
+        print('New account created for:{ username } { password }')
