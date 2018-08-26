@@ -68,3 +68,22 @@ def main():
         save_user(create_user(username,password))
 
         print('New account created for:{ username } { password }')
+    elif short_code == 'li':
+        print(' ')
+        print('To login, enter your account details:')
+        username = input('Enter your first name - ').strip()
+        password = str(input('Enter your password - '))
+        user_exists = verify_user(username,password)
+        if user_exists = username:
+            print(" ")
+            print(f'Welcome {user_name}. Please choose an option to continue.')
+            print(' ')
+            while True:
+
+                print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+					short_code = input('Enter a choice: ').lower().strip()
+					print("-"*60)
+					if short_code == 'ex':
+						print(" ")
+						print(f'Goodbye {user_name}')
+						break
