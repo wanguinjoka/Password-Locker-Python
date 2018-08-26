@@ -21,3 +21,18 @@ def verify_user(username,password):
     '''
     checkverify_user = Credentials.check_user(username,password)
     return checkverify_user
+
+def generate_password():
+    '''
+    function that generate a random password
+    '''
+    gen_pass = Credentials.generate_password()
+    return gen_pass
+
+def create_credentials(appName,loginname,passwordUsed):
+    '''
+    function that creates new credentials
+
+    '''
+    new_credentials=Credentials(appName,loginname,passwordUsed)
+    return new_credentials
