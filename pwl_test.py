@@ -121,9 +121,8 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         facebook = Credentials('facebook','bowjoe','testpass')
         facebook.save_credentials()
-        gmail = Credentials('Gmail','maryjoe','passw2')
-        gmail.save_credentials()
-        self.assertEqual(len(Credentials.display_credentials(facebook.loginname)),2)
+
+        self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
 
     def test_find_by_appName(self):
         '''
